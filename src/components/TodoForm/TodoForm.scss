@@ -1,0 +1,11 @@
+.todo-form {
+  max-width: 60em !important;
+  margin: 3em auto !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-evenly;
+
+  &__input {
+    width: 80%;
+  }
+}
