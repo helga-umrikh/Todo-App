@@ -20,9 +20,8 @@ export const tasksSlice = createSlice({
       action: PayloadAction<Task>
     ) => {
       const { id } = action.payload
-      state = state.map((item) =>
-        item.id === id ? action.payload : item
-      )
+      state = state.filter((item) => item.id !== id)
+      return state
     },
 
     editTask: (
@@ -30,7 +29,7 @@ export const tasksSlice = createSlice({
       action: PayloadAction<Task>
     ) => {
       const { id } = action.payload
-      state = state.map((item) =>
+      state.map((item) =>
         item.id === id ? action.payload : item
       )
     },
