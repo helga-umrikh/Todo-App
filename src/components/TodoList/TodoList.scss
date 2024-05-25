@@ -1,0 +1,43 @@
+.todo-list {
+  background-color: #FAFAFA !important;
+  max-width: 60em !important;
+  margin: 0em auto !important;
+}
+
+.task {
+  &__title {
+    font-family: 'Roboto' !important;
+    font-weight: 400 !important;
+    font-style: normal;
+  }
+}
+
+.button {
+  width: 8em;
+  display: flex;
+  justify-content: space-between;
+
+  &__delete:hover {
+    border-color: #ffa39e !important;
+  }
+
+  &__completed:hover {
+    border-color: #b7eb8f !important;
+  }
+}
+
+@media screen and (max-width: 1023px) and (min-width: 650px) {
+  .task {
+    &__title {
+      font-size: 16px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 649px) {
+  .task {
+    &__title {
+      font-size: 16px !important;
+    }
+  }
+}
