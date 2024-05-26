@@ -18,7 +18,7 @@ const TodoForm = () => {
             id: uuidv4(),
             title: taskState,
             description: null,
-            expirationDate: new Date(),
+            expirationDate: '',
             isDone: false,
         }
 
@@ -37,6 +37,7 @@ const TodoForm = () => {
                     setTaskState(e.target.value)
                 }}
                 status={inputStatus ? 'error' : undefined}
+                allowClear
             />
             <Button
                 icon={
