@@ -29,9 +29,10 @@ export const tasksSlice = createSlice({
       action: PayloadAction<Task>
     ) => {
       const { id } = action.payload
-      state.map((item) =>
+      state = state.map((item) =>
         item.id === id ? action.payload : item
       )
+      return state
     },
   }
 })
