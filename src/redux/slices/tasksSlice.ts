@@ -1,42 +1,38 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
+import fetchTasksFromStorage from '../../api/fetchTasks'
 import { Task } from '../../interfaces/Tasks'
 
-const initialState: Task[] = [];
+const initialState: Task[] = []
 
 export const tasksSlice = createSlice({
-  name: 'tasksSlice',
-  initialState: initialState,
-  reducers: {
-    addTask: (
-      state: Task[],
-      action: PayloadAction<Task>
-    ) => {
-      state.push(action.payload);
-    },
+    name: 'tasksSlice',
+    initialState: initialState,
+    reducers: {
+        setTasks: (state: Task[], action: PayloadAction<Task[]>) => {
+            state = action.payload
+        },
 
-    deleteTask: (
-      state: Task[],
-      action: PayloadAction<Task>
-    ) => {
-      const { id } = action.payload
-      state = state.filter((item) => item.id !== id)
-      return state
-    },
+        addTask: (state: Task[], action: PayloadAction<Task>) => {
+            state.push(action.payload)
+        },
 
-    editTask: (
-      state: Task[],
-      action: PayloadAction<Task>
-    ) => {
-      const { id } = action.payload
-      state = state.map((item) =>
-        item.id === id ? action.payload : item
-      )
-      return state
+        deleteTask: (state: Task[], action: PayloadAction<Task>) => {
+            const { id } = action.payload
+            state = state.filter((item) => item.id !== id)
+            return state
+        },
+
+        editTask: (state: Task[], action: PayloadAction<Task>) => {
+            const { id } = action.payload
+            state = state.map((item) =>
+                item.id === id ? action.payload : item
+            )
+            return state
+        },
     },
-  }
 })
 
-export const { addTask, deleteTask, editTask } = tasksSlice.actions
+export const { setTasks, addTask, deleteTask, editTask } = tasksSlice.actions
 
 export default tasksSlice.reducer

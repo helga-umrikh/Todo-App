@@ -20,7 +20,7 @@
   }
 }
 
-.button {
+.edit-options {
   width: 13em;
   display: flex;
   justify-content: space-between;
@@ -41,6 +41,15 @@
 
   &__input {
     margin: 0 0 1em 0;
+  }
+
+  &__file {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__file > span {
+    margin: 0 0.5em 14px 0;
   }
 
 }

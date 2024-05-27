@@ -20,6 +20,7 @@ const TodoForm = () => {
             description: null,
             expirationDate: '',
             isDone: false,
+            files: [],
         }
 
         dispatch(addTask(task))
