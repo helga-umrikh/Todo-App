@@ -139,7 +139,7 @@ const TodoList = () => {
                             </Paragraph>
                             <Title level={5}>Attached files:</Title>
                             <Paragraph>
-                                {item.files
+                                {item.files && item.files?.length > 0
                                     ? item.files.map((e, index) => (
                                           <div className="edit-modal__file">
                                               <FileTwoTone />
